@@ -13,29 +13,34 @@ function playRound(playerSelection, computerSelection) {
     console.log(computer);
 
     let result = "";
+    const messages = [`** Draw! **`,
+        `** You win! ${player} beats ${computer}. **`,
+        `** You lose! ${computer} beats ${player}. **`
+    ];
+
     if (player === "ROCK") {
         if (computer === "ROCK") {
-            result = "** Draw. **";
+            result = messages[0];
         } else if (computer === "PAPER") {
-            result = `** You lose! ${computer} beats ${player}. **`;
-        } else {
-            result = `** You win! ${player} beats ${computer}. **`;
+            result = messages[2];
+        } else { // (computer === SCISSORS)
+            result = messages[1];
         }
     } else if (player === "PAPER") {
         if (computer === "ROCK") {
-            result = `** You win! ${player} beats ${computer}. **`;
+            result = messages[1];
         } else if (computer === "PAPER") {
-            result = "** Draw. **";
-        } else {
-            result = `** You lose! ${computer} beats ${player}. **`;
+            result = messages[0];
+        } else { // (computer === SCISSORS)
+            result = messages[2];
         }
     } else if (player === "SCISSORS") {
         if (computer === "ROCK") {
-            result = `** You lose! ${computer} beats ${player}. **`;
+            result = messages[2];
         } else if (computer === "PAPER") {
-            result = `** You win! ${player} beats ${computer}. **`;
-        } else {
-            result = "** Draw. **";
+            result = messages[1];
+        } else { // (computer === SCISSORS)
+            result = messages[0];
         }
     } else {
         result = "Invalid input.";
