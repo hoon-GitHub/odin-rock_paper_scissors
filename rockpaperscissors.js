@@ -15,27 +15,27 @@ function playRound(playerSelection, computerSelection) {
     let result = "";
     if (player === "ROCK") {
         if (computer === "ROCK") {
-            result = "Draw.";
+            result = "** Draw. **";
         } else if (computer === "PAPER") {
-            result = `You lose! ${computer} beats ${player}.`;
+            result = `** You lose! ${computer} beats ${player}. **`;
         } else {
-            result = `You win! ${player} beats ${computer}.`;
+            result = `** You win! ${player} beats ${computer}. **`;
         }
     } else if (player === "PAPER") {
         if (computer === "ROCK") {
-            result = `You win! ${player} beats ${computer}.`;
+            result = `** You win! ${player} beats ${computer}. **`;
         } else if (computer === "PAPER") {
-            result = "Draw.";
+            result = "** Draw. **";
         } else {
-            result = `You lose! ${computer} beats ${player}.`;
+            result = `** You lose! ${computer} beats ${player}. **`;
         }
     } else if (player === "SCISSORS") {
         if (computer === "ROCK") {
-            result = `You lose! ${computer} beats ${player}.`;
+            result = `** You lose! ${computer} beats ${player}. **`;
         } else if (computer === "PAPER") {
-            result = `You win! ${player} beats ${computer}.`;
+            result = `** You win! ${player} beats ${computer}. **`;
         } else {
-            result = "Draw.";
+            result = "** Draw. **";
         }
     } else {
         result = "Invalid input.";
@@ -43,7 +43,13 @@ function playRound(playerSelection, computerSelection) {
     return result;
 }
 
+// Play the game 5 times
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        let player = prompt("Your choice:");
+        let computer = getComputerChoice();
+        console.log(playRound(player, computer));
+    }
+}
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+playGame();
