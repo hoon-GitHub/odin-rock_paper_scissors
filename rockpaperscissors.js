@@ -9,6 +9,7 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     const player = playerSelection.toUpperCase();
     const computer = computerSelection.toUpperCase();
+
     console.log(player);
     console.log(computer);
 
@@ -45,7 +46,9 @@ function playRound(playerSelection, computerSelection) {
     } else {
         result = "Invalid input.";
     }
-    return result;
+
+    const display = document.querySelector(".display");
+    display.textContent = result;
 }
 
 const btnR = document.querySelector(".rock")
