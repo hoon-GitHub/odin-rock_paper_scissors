@@ -48,13 +48,16 @@ function playRound(playerSelection, computerSelection) {
     return result;
 }
 
-// Play the game 5 times
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        let player = prompt("Your choice:");
-        let computer = getComputerChoice();
-        console.log(playRound(player, computer));
-    }
-}
+const btnR = document.querySelector(".rock")
+const btnP = document.querySelector(".paper")
+const btnS = document.querySelector(".scissors")
 
-playGame();
+btnR.addEventListener("click", () => {
+    playRound("ROCK", getComputerChoice())
+});
+btnP.addEventListener("click", () => {
+    playRound("PAPER", getComputerChoice())
+});
+btnS.addEventListener("click", () => {
+    playRound("SCISSORS", getComputerChoice())
+});
